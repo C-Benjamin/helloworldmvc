@@ -29,4 +29,10 @@
   	<module>helloworldmvc.Contract</module>
   	<module>helloworldmvc.main</module>
   </modules>
+  <distributionManagement>
+      <site>
+          <id>helloworldmaven</id>
+          <url>file:///C:/temp/</url>
+      </site>
+  </distributionManagement>
 </project>
