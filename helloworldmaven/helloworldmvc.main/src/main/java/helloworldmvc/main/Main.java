@@ -12,6 +12,7 @@ public class Main {
 		final IModel model = new Model();
 		final IView view = new View();
 		final Controller controller = new Controller(view, model);
+		controller.run();
 
 	}
 

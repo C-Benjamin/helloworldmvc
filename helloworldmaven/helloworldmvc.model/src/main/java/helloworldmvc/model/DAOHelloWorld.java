@@ -1,9 +1,7 @@
 package helloworldmvc.model;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
 
 public class DAOHelloWorld {
 	private static String			FileName			= "helloworld.txt";
@@ -11,28 +9,27 @@ public class DAOHelloWorld {
 	private String					helloWorldMessage	= null;
 
 	private DAOHelloWorld() {
-
+		this.readFile();
 	}
 
-	private static DAOHelloWorld getInstance() {
+	public static DAOHelloWorld getInstance() {
+		if (instance == null) {
+			setInstance(new DAOHelloWorld());
+		}
 		return instance;
 	}
 
-	private static void setInstance(final DAOHelloWorld instance1) {
-		instance = instance1;
+	private static void setInstance(final DAOHelloWorld instance2) {
+		instance = instance2;
 	}
 
 	private void readFile() {
+		BufferedReader bufferstock = null;
 		try {
-			final File file = new File(FileName);
-			FileReader fileReader = null;
-			fileReader = new FileReader(file);
-			this.helloWorldMessage = fileReader.toString();
-			fileReader.close();
-		} catch (final FileNotFoundException e) {
+			bufferstock = new BufferedReader(new FileReader(DAOHelloWorld.FileName));
+			this.helloWorldMessage = bufferstock.readLine();
+		} catch (final Exception e) {
 			e.printStackTrace();
-		} catch (final IOException f) {
-			f.printStackTrace();
 		}
 	}
 
