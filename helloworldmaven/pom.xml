@@ -23,16 +23,47 @@
     </dependency>
   </dependencies>
   <modules>
-  	<module>helloworldmvc.controller</module>
-  	<module>helloworldmvc.model</module>
-  	<module>helloworldmvc.view</module>
-  	<module>helloworldmvc.Contract</module>
-  	<module>helloworldmvc.main</module>
+    <module>helloworldmvc.controller</module>
+    <module>helloworldmvc.model</module>
+    <module>helloworldmvc.view</module>
+    <module>helloworldmvc.Contract</module>
+    <module>helloworldmvc.main</module>
   </modules>
   <distributionManagement>
-      <site>
-          <id>helloworldmaven</id>
-          <url>file:///C:/temp/</url>
-      </site>
+    <site>
+      <id>helloworldmaven</id>
+      <url>file:///C:/temp/</url>
+    </site>
   </distributionManagement>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.6.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <version>2.5</version>
+        <reportSets>
+          <reportSet>
+            <id>aggregate</id>
+            <reports>
+              <report>aggregate</report>
+              <report>test-aggregate</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
 </project>

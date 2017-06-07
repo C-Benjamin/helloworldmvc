@@ -3,42 +3,79 @@ package helloworldmvc.model;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+/**
+ * The Class DAOHelloWorld.
+ */
 public class DAOHelloWorld {
-	private static String			FileName			= "helloworld.txt";
-	private static DAOHelloWorld	instance			= null;
-	private String					helloWorldMessage	= null;
 
-	private DAOHelloWorld() {
-		this.readFile();
-	}
+    /** The File name. */
+    private static String        FileName          = "helloworld.txt";
 
-	public static DAOHelloWorld getInstance() {
-		if (instance == null) {
-			setInstance(new DAOHelloWorld());
-		}
-		return instance;
-	}
+    /** The instance. */
+    private static DAOHelloWorld instance          = null;
 
-	private static void setInstance(final DAOHelloWorld instance2) {
-		instance = instance2;
-	}
+    /** The hello world message. */
+    private String               helloWorldMessage = null;
 
-	private void readFile() {
-		BufferedReader bufferstock = null;
-		try {
-			bufferstock = new BufferedReader(new FileReader(DAOHelloWorld.FileName));
-			this.helloWorldMessage = bufferstock.readLine();
-		} catch (final Exception e) {
-			e.printStackTrace();
-		}
-	}
+    /**
+     * Instantiates a new DAO hello world.
+     */
+    private DAOHelloWorld() {
+        this.readFile();
+    }
 
-	public String getHelloWorldMessage() {
-		return this.helloWorldMessage;
-	}
+    /**
+     * Gets the single instance of DAOHelloWorld.
+     *
+     * @return single instance of DAOHelloWorld
+     */
+    public static DAOHelloWorld getInstance() {
+        if (DAOHelloWorld.instance == null) {
+            DAOHelloWorld.setInstance(new DAOHelloWorld());
+        }
+        return DAOHelloWorld.instance;
+    }
 
-	public void setHelloWorldMessage(final String helloWorldMessage) {
-		this.helloWorldMessage = helloWorldMessage;
-	}
+    /**
+     * Sets the instance.
+     *
+     * @param instance2
+     *            the new instance
+     */
+    private static void setInstance(final DAOHelloWorld instance2) {
+        DAOHelloWorld.instance = instance2;
+    }
+
+    /**
+     * Read file.
+     */
+    private void readFile() {
+        BufferedReader bufferstock = null;
+        try {
+            bufferstock = new BufferedReader(new FileReader(DAOHelloWorld.FileName));
+            this.helloWorldMessage = bufferstock.readLine();
+        } catch (final Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Gets the hello world message.
+     *
+     * @return the hello world message
+     */
+    public String getHelloWorldMessage() {
+        return this.helloWorldMessage;
+    }
+
+    /**
+     * Sets the hello world message.
+     *
+     * @param helloWorldMessage
+     *            the new hello world message
+     */
+    public void setHelloWorldMessage(final String helloWorldMessage) {
+        this.helloWorldMessage = helloWorldMessage;
+    }
 
 }

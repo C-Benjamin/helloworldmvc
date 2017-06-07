@@ -8,11 +8,11 @@ import helloworldmvc.view.View;
 
 public class Main {
 
-	public static void main(final String[] args) {
-		final IModel model = new Model();
-		final IView view = new View();
-		final Controller controller = new Controller(view, model);
-		controller.run();
-	}
+    public static void main(final String[] args) {
+        final IModel model = new Model();
+        final IView view = new View();
+        final Controller controller = new Controller(view, model);
+        controller.run();
+    }
 
 }
