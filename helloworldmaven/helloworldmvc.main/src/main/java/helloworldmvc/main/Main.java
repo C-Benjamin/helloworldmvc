@@ -13,7 +13,6 @@ public class Main {
 		final IView view = new View();
 		final Controller controller = new Controller(view, model);
 		controller.run();
-
 	}
 
 }
